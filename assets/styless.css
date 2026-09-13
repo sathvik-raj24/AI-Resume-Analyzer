@@ -1,48 +1,861 @@
-.main-title {
-    font-size: 42px;
-    font-weight: 700;
-    margin-bottom: 5px;
+/* =========================================================
+   AI RESUME ANALYZER
+   FUTURISTIC SPACE / NEON PURPLE UI
+   ========================================================= */
+
+.stApp {
+    background:
+        radial-gradient(circle at 10% 20%, rgba(139, 92, 246, .20), transparent 25%),
+        radial-gradient(circle at 90% 10%, rgba(168, 85, 247, .18), transparent 25%),
+        radial-gradient(circle at 50% 100%, rgba(59, 130, 246, .12), transparent 30%),
+        #05030d;
+
+    color: #f5f3ff;
+
+    overflow-x: hidden;
 }
+
+
+/* =========================================================
+   SPACE STARS
+   ========================================================= */
+
+.stApp::before {
+    content: "";
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background-image:
+        radial-gradient(1px 1px at 10% 20%, white, transparent),
+        radial-gradient(1px 1px at 30% 80%, #c084fc, transparent),
+        radial-gradient(2px 2px at 70% 30%, white, transparent),
+        radial-gradient(1px 1px at 90% 70%, #a855f7, transparent),
+        radial-gradient(1px 1px at 50% 50%, white, transparent),
+        radial-gradient(2px 2px at 20% 60%, #c4b5fd, transparent),
+        radial-gradient(1px 1px at 80% 85%, white, transparent);
+
+    background-size:
+        250px 250px,
+        320px 320px,
+        400px 400px,
+        280px 280px,
+        350px 350px,
+        450px 450px,
+        300px 300px;
+
+    animation: starsMove 25s linear infinite;
+
+    opacity: .7;
+
+    z-index: 0;
+}
+
+
+@keyframes starsMove {
+
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-120px);
+    }
+}
+
+
+/* =========================================================
+   MAIN CONTENT
+   ========================================================= */
+
+.main .block-container {
+
+    position: relative;
+
+    z-index: 2;
+
+    padding-top: 2rem;
+}
+
+
+/* =========================================================
+   MAIN TITLE
+   ========================================================= */
+
+.main-title {
+
+    font-size: 48px;
+
+    font-weight: 900;
+
+    letter-spacing: -1px;
+
+    margin-bottom: 8px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ffffff,
+            #d8b4fe,
+            #a855f7,
+            #e879f9,
+            #ffffff
+        );
+
+    background-size: 300%;
+
+    -webkit-background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+
+    animation:
+        titleGradient 6s ease infinite,
+        titleFloat 4s ease-in-out infinite;
+
+    text-shadow:
+        0 0 20px rgba(168, 85, 247, .4);
+}
+
+
+@keyframes titleGradient {
+
+    0% {
+        background-position: 0%;
+    }
+
+    50% {
+        background-position: 100%;
+    }
+
+    100% {
+        background-position: 0%;
+    }
+}
+
+
+@keyframes titleFloat {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-3px);
+    }
+}
+
+
+/* =========================================================
+   SUBTITLE
+   ========================================================= */
 
 .subtitle {
+
     font-size: 18px;
-    margin-bottom: 25px;
+
+    color: #c4b5fd;
+
+    margin-bottom: 30px;
+
+    transition: all .3s ease;
 }
 
-.score-card {
-    padding: 20px;
-    border-radius: 12px;
-    border: 1px solid rgba(128, 128, 128, 0.25);
-    text-align: center;
-    margin-bottom: 15px;
+.subtitle:hover {
+
+    color: #ffffff;
+
+    text-shadow:
+        0 0 10px #a855f7,
+        0 0 25px rgba(168, 85, 247, .7);
+
+    transform: translateX(5px);
 }
 
-.score-number {
-    font-size: 32px;
-    font-weight: 700;
-}
 
-.score-label {
-    font-size: 14px;
-}
+/* =========================================================
+   SECTION TITLES
+   ========================================================= */
 
 .section-title {
-    font-size: 24px;
-    font-weight: 600;
-    margin-top: 20px;
-    margin-bottom: 15px;
+
+    font-size: 25px;
+
+    font-weight: 800;
+
+    margin-top: 28px;
+
+    margin-bottom: 18px;
+
+    color: #f5f3ff;
+
+    transition: all .3s ease;
+
+    cursor: default;
 }
+
+
+.section-title:hover {
+
+    color: #d8b4fe;
+
+    transform: translateX(7px);
+
+    text-shadow:
+        0 0 8px #a855f7,
+        0 0 20px rgba(168, 85, 247, .8);
+}
+
+
+.section-title::after {
+
+    content: "";
+
+    display: block;
+
+    width: 70px;
+
+    height: 3px;
+
+    margin-top: 8px;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #7c3aed,
+            #c026d3,
+            #22d3ee
+        );
+
+    box-shadow:
+        0 0 8px #a855f7,
+        0 0 20px rgba(168, 85, 247, .8);
+
+    transition: width .4s ease;
+}
+
+
+.section-title:hover::after {
+
+    width: 130px;
+}
+
+
+/* =========================================================
+   GLASSMORPHISM CARDS
+   ========================================================= */
+
+.score-card,
+.skill-card,
+.recommendation-card {
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.07),
+            rgba(139,92,246,.035)
+        );
+
+    backdrop-filter: blur(18px);
+
+    -webkit-backdrop-filter: blur(18px);
+
+    border:
+        1px solid rgba(192,132,252,.25);
+
+    box-shadow:
+        inset 0 0 25px rgba(168,85,247,.04),
+        0 10px 35px rgba(0,0,0,.35);
+
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease,
+        border-color .35s ease;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+/* Moving neon line */
+
+.score-card::after,
+.skill-card::after,
+.recommendation-card::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: -120%;
+
+    width: 80%;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #c084fc,
+            #ffffff,
+            transparent
+        );
+
+    animation: neonScan 4s linear infinite;
+}
+
+
+@keyframes neonScan {
+
+    0% {
+        left: -120%;
+    }
+
+    100% {
+        left: 140%;
+    }
+}
+
+
+/* =========================================================
+   SCORE CARD
+   ========================================================= */
+
+.score-card {
+
+    padding: 28px;
+
+    border-radius: 20px;
+
+    text-align: center;
+
+    margin-bottom: 20px;
+
+    box-shadow:
+        0 0 20px rgba(124,58,237,.15),
+        inset 0 0 30px rgba(168,85,247,.05);
+}
+
+
+.score-card:hover {
+
+    transform:
+        translateY(-8px)
+        scale(1.02);
+
+    border-color: #c084fc;
+
+    box-shadow:
+        0 0 20px rgba(168,85,247,.35),
+        0 0 50px rgba(124,58,237,.25);
+}
+
+
+.score-number {
+
+    font-size: 46px;
+
+    font-weight: 900;
+
+    color: #d8b4fe;
+
+    text-shadow:
+        0 0 10px #a855f7,
+        0 0 25px #7c3aed,
+        0 0 50px rgba(168,85,247,.7);
+
+    animation: scorePulse 2.5s ease-in-out infinite;
+}
+
+
+@keyframes scorePulse {
+
+    0%, 100% {
+        text-shadow:
+            0 0 10px #a855f7,
+            0 0 25px #7c3aed;
+    }
+
+    50% {
+        text-shadow:
+            0 0 20px #e879f9,
+            0 0 45px #a855f7,
+            0 0 70px rgba(168,85,247,.8);
+    }
+}
+
+
+.score-label {
+
+    font-size: 13px;
+
+    color: #aaa0c2;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+
+    transition: all .3s ease;
+}
+
+
+.score-label:hover {
+
+    color: #e9d5ff;
+
+    letter-spacing: 3px;
+
+    text-shadow: 0 0 12px #a855f7;
+}
+
+
+/* =========================================================
+   SKILL CARDS
+   ========================================================= */
 
 .skill-card {
-    padding: 15px;
-    border-radius: 10px;
-    border: 1px solid rgba(128, 128, 128, 0.25);
-    margin-bottom: 10px;
+
+    padding: 17px;
+
+    border-radius: 15px;
+
+    margin-bottom: 12px;
 }
 
+
+.skill-card:hover {
+
+    transform:
+        translateX(8px)
+        scale(1.01);
+
+    border-color: #a855f7;
+
+    box-shadow:
+        0 0 15px rgba(168,85,247,.3),
+        0 0 35px rgba(124,58,237,.15);
+}
+
+
+/* =========================================================
+   RECOMMENDATIONS
+   ========================================================= */
+
 .recommendation-card {
-    padding: 15px;
-    border-radius: 10px;
-    border: 1px solid rgba(128, 128, 128, 0.25);
-    margin-bottom: 10px;
+
+    padding: 18px;
+
+    border-radius: 15px;
+
+    margin-bottom: 12px;
+
+    border-left:
+        3px solid #a855f7;
+}
+
+
+.recommendation-card:hover {
+
+    transform: translateX(8px);
+
+    border-left-color: #e879f9;
+
+    box-shadow:
+        0 0 20px rgba(168,85,247,.25);
+}
+
+
+/* =========================================================
+   BUTTON
+   ========================================================= */
+
+.stButton > button {
+
+    width: 100%;
+
+    min-height: 55px;
+
+    border-radius: 15px;
+
+    border: 1px solid rgba(216,180,254,.55);
+
+    background:
+        linear-gradient(
+            120deg,
+            #6d28d9,
+            #9333ea,
+            #c026d3,
+            #7c3aed
+        );
+
+    background-size: 300% 300%;
+
+    color: white;
+
+    font-size: 18px;
+
+    font-weight: 800;
+
+    letter-spacing: .5px;
+
+    box-shadow:
+        0 0 15px rgba(168,85,247,.4),
+        0 0 35px rgba(124,58,237,.15);
+
+    animation: buttonGradient 5s ease infinite;
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+
+@keyframes buttonGradient {
+
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+.stButton > button:hover {
+
+    transform:
+        translateY(-4px)
+        scale(1.02);
+
+    box-shadow:
+        0 0 20px rgba(192,132,252,.7),
+        0 0 50px rgba(168,85,247,.5),
+        0 0 90px rgba(124,58,237,.25);
+
+    border-color: #ffffff;
+}
+
+
+/* =========================================================
+   FILE UPLOADER
+   ========================================================= */
+
+[data-testid="stFileUploader"] {
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(124,58,237,.10),
+            rgba(168,85,247,.03)
+        );
+
+    border:
+        1px dashed rgba(192,132,252,.6);
+
+    border-radius: 18px;
+
+    padding: 12px;
+
+    box-shadow:
+        inset 0 0 25px rgba(168,85,247,.04),
+        0 0 20px rgba(124,58,237,.08);
+
+    transition: all .35s ease;
+}
+
+
+[data-testid="stFileUploader"]:hover {
+
+    border-color: #e879f9;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 0 20px rgba(168,85,247,.3),
+        0 0 45px rgba(124,58,237,.15);
+}
+
+
+/* =========================================================
+   TEXT AREA
+   ========================================================= */
+
+textarea {
+
+    background:
+        rgba(10,7,25,.65) !important;
+
+    color: #f5f3ff !important;
+
+    border:
+        1px solid rgba(168,85,247,.35) !important;
+
+    border-radius: 16px !important;
+
+    transition: all .35s ease !important;
+}
+
+
+textarea:hover {
+
+    border-color:
+        rgba(192,132,252,.7) !important;
+
+    box-shadow:
+        0 0 20px rgba(168,85,247,.15) !important;
+}
+
+
+textarea:focus {
+
+    border-color:
+        #c084fc !important;
+
+    box-shadow:
+        0 0 15px rgba(168,85,247,.4),
+        0 0 35px rgba(124,58,237,.2) !important;
+}
+
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+
+[data-testid="stSidebar"] {
+
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            rgba(139,92,246,.22),
+            transparent 35%
+        ),
+        linear-gradient(
+            180deg,
+            #10081f,
+            #070510
+        ) !important;
+
+    border-right:
+        1px solid rgba(168,85,247,.25);
+
+    box-shadow:
+        8px 0 35px rgba(124,58,237,.15);
+}
+
+
+/* Sidebar text */
+
+[data-testid="stSidebar"] p,
+[data-testid="stSidebar"] span,
+[data-testid="stSidebar"] label {
+
+    transition:
+        all .25s ease;
+
+    cursor: default;
+}
+
+
+[data-testid="stSidebar"] p:hover,
+[data-testid="stSidebar"] span:hover,
+[data-testid="stSidebar"] label:hover {
+
+    color: #d8b4fe !important;
+
+    transform: translateX(6px);
+
+    text-shadow:
+        0 0 8px #a855f7,
+        0 0 18px rgba(168,85,247,.7);
+}
+
+
+/* Sidebar headings */
+
+[data-testid="stSidebar"] h1,
+[data-testid="stSidebar"] h2,
+[data-testid="stSidebar"] h3 {
+
+    color: #e9d5ff !important;
+
+    transition: all .3s ease;
+}
+
+
+[data-testid="stSidebar"] h1:hover,
+[data-testid="stSidebar"] h2:hover,
+[data-testid="stSidebar"] h3:hover {
+
+    transform: translateX(7px);
+
+    color: #ffffff !important;
+
+    text-shadow:
+        0 0 10px #a855f7,
+        0 0 25px #7c3aed;
+}
+
+
+/* =========================================================
+   TABS
+   ========================================================= */
+
+.stTabs [data-baseweb="tab"] {
+
+    color: #aaa0c2;
+
+    font-weight: 700;
+
+    transition:
+        all .3s ease;
+}
+
+
+.stTabs [data-baseweb="tab"]:hover {
+
+    color: #e9d5ff;
+
+    transform: translateY(-3px);
+
+    text-shadow:
+        0 0 10px #a855f7;
+}
+
+
+.stTabs [aria-selected="true"] {
+
+    color: #c084fc !important;
+
+    text-shadow:
+        0 0 12px #a855f7;
+}
+
+
+/* =========================================================
+   METRIC VALUES
+   ========================================================= */
+
+[data-testid="stMetricValue"] {
+
+    color: #d8b4fe;
+
+    text-shadow:
+        0 0 10px rgba(168,85,247,.6);
+
+    transition: all .3s ease;
+}
+
+
+[data-testid="stMetricValue"]:hover {
+
+    transform: scale(1.08);
+
+    text-shadow:
+        0 0 15px #e879f9,
+        0 0 35px #a855f7;
+}
+
+
+/* =========================================================
+   EXPANDERS
+   ========================================================= */
+
+[data-testid="stExpander"] {
+
+    background:
+        rgba(255,255,255,.035);
+
+    border:
+        1px solid rgba(168,85,247,.25);
+
+    border-radius: 15px;
+
+    transition: all .3s ease;
+}
+
+
+[data-testid="stExpander"]:hover {
+
+    border-color:
+        rgba(192,132,252,.65);
+
+    box-shadow:
+        0 0 25px rgba(168,85,247,.15);
+}
+
+
+/* =========================================================
+   LINKS
+   ========================================================= */
+
+a {
+
+    color: #c084fc !important;
+
+    transition: all .25s ease;
+}
+
+
+a:hover {
+
+    color: #f0abfc !important;
+
+    text-shadow:
+        0 0 10px #a855f7,
+        0 0 25px rgba(168,85,247,.8);
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .main-title {
+
+        font-size: 32px;
+
+    }
+
+    .subtitle {
+
+        font-size: 15px;
+
+    }
+
+    .section-title {
+
+        font-size: 21px;
+
+    }
+
+    .score-number {
+
+        font-size: 38px;
+
+    }
+
+    .score-card,
+    .skill-card,
+    .recommendation-card {
+
+        padding: 14px;
+
+    }
+
 }

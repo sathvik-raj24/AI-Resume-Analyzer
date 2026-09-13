@@ -127,9 +127,28 @@ with st.sidebar:
 # ==========================================
 
 st.markdown(
-    '<div class="main-title">'
-    '📄 AI Resume Analyzer'
-    '</div>',
+    '''
+    <div class="main-title">
+        <span class="neon-letter">A</span>
+        <span class="neon-letter">I</span>
+        <span class="neon-space">&nbsp;</span>
+        <span class="neon-letter">R</span>
+        <span class="neon-letter">e</span>
+        <span class="neon-letter">s</span>
+        <span class="neon-letter">u</span>
+        <span class="neon-letter">m</span>
+        <span class="neon-letter">e</span>
+        <span class="neon-space">&nbsp;</span>
+        <span class="neon-letter">A</span>
+        <span class="neon-letter">n</span>
+        <span class="neon-letter">a</span>
+        <span class="neon-letter">l</span>
+        <span class="neon-letter">y</span>
+        <span class="neon-letter">z</span>
+        <span class="neon-letter">e</span>
+        <span class="neon-letter">r</span>
+    </div>
+    ''',
     unsafe_allow_html=True
 )
 
